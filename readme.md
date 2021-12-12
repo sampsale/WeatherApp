@@ -19,7 +19,7 @@ expo locations for location handling
 
 expo sqlite for database
 
-expo notifications for notifications
+expo notifications for notifications (currently not working)
 
 https://api.openweathermap.org/ API for weather data
 
