@@ -12,9 +12,14 @@ Techs used:
 Expo, React-native for core
 
 libraries/depends: 
-react-navigation for tabs
+
+react-navigation for tabs 
+
 expo locations for location handling
+
 expo sqlite for database
+
 expo notifications for notifications
+
 https://api.openweathermap.org/ API for weather data
 
