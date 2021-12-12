@@ -3,8 +3,11 @@ import React from 'react';
 import { StyleSheet,  Text, View, Alert, Image } from 'react-native';
 import * as Location from 'expo-location';
 import Notification from './Notification';
+import * as SQLite from 'expo-sqlite';
+
 
 export default function Weather({route}) {
+
 
 const [weather, setWeather] = React.useState({location: '', temperature: '', weathermain:'', imageurl:' ', feelsLike: '', wind: '', description: ''}) 
 

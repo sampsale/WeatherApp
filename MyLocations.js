@@ -99,22 +99,11 @@ const styles = StyleSheet.create({
     container: {
       flex:1,
       backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center'
+      alignItems: 'stretch',
+      justifyContent: 'center',
+      padding : 15
     },
     textinput:{
-      width: 400
-    },
-    button:{
-      justifyContent: 'space-between',
-      width: 200,
-      paddingHorizontal: 5,
-      color: 'red'
-    }, textstyle:{
-      color: 'red',
-      fontSize: 20,
-      fontWeight: 'bold',
-      
     }, flatlist:{
       justifyContent: 'space-between',
       flex: 0.9,

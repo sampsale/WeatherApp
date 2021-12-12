@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {  View, Button, Switch, Text, StyleSheet } from 'react-native';
+import {  View,  Switch, Text, StyleSheet } from 'react-native';
 import * as Notifications from 'expo-notifications';
 import Constants from 'expo-constants';
 
@@ -24,7 +24,7 @@ export default function Notification(props) {
   const toggleSwitch =  () => {
     console.log(isEnabled)
     if (isEnabled===false){
-         sendPushNotification(weather)
+      schedulePushNotification(weather)
     }
     setIsEnabled(previousState => !previousState);
   }
@@ -51,13 +51,7 @@ export default function Notification(props) {
   return (
     <View style={styles.container}>
 
-      <Text style={styles.titleText}>{isEnabled ? "Notifications are ON" : "Notifications are OFF"}</Text>
-      <Button
-        title="Press to schedule a notification"
-        onPress={async () => {
-          await sendPushNotification();
-        }}
-      />
+      <Text style={styles.titleText}>{isEnabled ? "Daily notifications are ON" : "Daily notifications are OFF"}</Text>
       <Switch
         trackColor={{ false: "#767577", true: "#81b0ff" }}
         thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
@@ -74,24 +68,23 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center',
-    }, 
+    },  
     titleText: {
         fontSize: 20,
       }
   })
 
 
-async function sendPushNotification(weather) {
-  console.log('test')
-  Notifications.scheduleNotificationAsync({
-    content: {
-      title: 'Complete a quiz',
-      body: "👋 Don't forget solve a quiz today!",
-    },
-    trigger: {
-    },
-  })
-    }
+  async function schedulePushNotification(weather) {
+    
+    await Notifications.scheduleNotificationAsync({
+      content: {
+        title: `Current weather in ${weather.location}`,
+        body: `${weather.description.charAt(0).toUpperCase()}${weather.description.slice(1)} ${weather.temperature} C°, feels like ${weather.feelsLike} C°`
+      },
+      trigger: { hour: 8, minute: 1, repeats: true  },
+    });
+  }
 
     async function registerForPushNotificationsAsync() {
     let token;
