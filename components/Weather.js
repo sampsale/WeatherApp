@@ -31,7 +31,7 @@ export default function Weather({ route }) {
     let location = await Location.getCurrentPositionAsync({});
 
     console.log('FETCH by coords')
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&APPID=d1d50384a434f5c85b4df056f3b78bfa`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&APPID=77c7bf481aee705b6d2cfc87e28997c3`)
       .then(response => response.json())
       .then(responseData => {
         console.log(responseData)
@@ -51,7 +51,7 @@ export default function Weather({ route }) {
   const getWeatherDataByLocation = async (location) => {
     
     console.log('FETCH by location')
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=d1d50384a434f5c85b4df056f3b78bfa`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=77c7bf481aee705b6d2cfc87e28997c3`)
       .then(response => response.json())
       .then(responseData => {
         console.log(responseData)
