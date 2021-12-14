@@ -1,7 +1,7 @@
 
 import React from 'react';
-import Weather from './Weather';
-import MyLocations from './MyLocations';
+import Weather from './components/Weather';
+import MyLocations from './components/MyLocations';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme} from '@react-navigation/native';
 
